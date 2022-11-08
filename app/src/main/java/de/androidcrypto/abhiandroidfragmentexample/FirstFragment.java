@@ -27,7 +27,7 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // display a message by using a Toast
-                Toast.makeText(getActivity(), "First Fragment", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "First Fragment", Toast.LENGTH_SHORT).show();
             }
         });
         return view;

@@ -1,8 +1,5 @@
     package de.androidcrypto.abhiandroidfragmentexample;
 
-    import android.app.Fragment;
-    import android.app.FragmentManager;
-    import android.app.FragmentTransaction;
     import android.os.Bundle;
     import android.view.Menu;
     import android.view.MenuItem;
@@ -10,6 +7,9 @@
     import android.widget.Button;
 
     import androidx.appcompat.app.AppCompatActivity;
+    import androidx.fragment.app.Fragment;
+    import androidx.fragment.app.FragmentManager;
+    import androidx.fragment.app.FragmentTransaction;
 
     public class MainActivity extends AppCompatActivity {
 
@@ -44,12 +44,15 @@
 
         private void loadFragment(Fragment fragment) {
             // create a FragmentManager
-            FragmentManager fm = getFragmentManager();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            //FragmentManager fm = getFragmentManager();
             // create a FragmentTransaction to begin the transaction and replace the Fragment
-            FragmentTransaction fragmentTransaction = fm.beginTransaction();
-            // replace the FrameLayout with new Fragment
-            fragmentTransaction.replace(R.id.frameLayout, fragment);
-            fragmentTransaction.commit(); // save the changes
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            // replace the FrameLayout with new Fragment and save the changes
+            fragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, fragment)
+                    .commit();
+
         }
 
         @Override
